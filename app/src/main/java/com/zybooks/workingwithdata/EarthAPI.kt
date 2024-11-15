@@ -25,10 +25,8 @@ import org.json.JSONArray
 //const val TAG = "EARTH_API"
 
 class EarthAPI : AppCompatActivity() {
-    lateinit var startDateTextView: TextView
-    lateinit var startDateEditText: EditText
-    lateinit var endDateTextView: TextView
-    lateinit var endDateEditText: EditText
+    lateinit var longitudeEditText: EditText
+    lateinit var latitudeEditText: EditText
     lateinit var recyclerView: RecyclerView
     lateinit var imageDataSet: ArrayList<ImageData>
     lateinit var imageCustomAdapter: ImageCustomAdapter
@@ -47,24 +45,24 @@ class EarthAPI : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        supportActionBar?.title = "Working with Earth"
+        supportActionBar?.title = "Earth Things!"
 
-        startDateTextView = findViewById(R.id.dateTextView)
-        startDateEditText = findViewById(R.id.dateEditText)
-        startDateEditText.doAfterTextChanged {
-            countEditText.isEnabled = startDateEditText.text.isEmpty()
+        longitudeEditText = findViewById(R.id.dateTextView)
+        longitudeEditText = findViewById(R.id.dateEditText)
+        longitudeEditText.doAfterTextChanged {
+            countEditText.isEnabled = longitudeEditText.text.isEmpty()
         }
 
-        endDateTextView = findViewById(R.id.endDateTextView)
-        endDateEditText = findViewById(R.id.endDateEditText)
-        endDateEditText.doAfterTextChanged {
-            countEditText.isEnabled = endDateEditText.text.isEmpty()
+        latitudeEditText = findViewById(R.id.endDateTextView)
+        latitudeEditText = findViewById(R.id.endDateEditText)
+        latitudeEditText.doAfterTextChanged {
+            countEditText.isEnabled = latitudeEditText.text.isEmpty()
         }
 
         countEditText = findViewById(R.id.countEditText)
         countEditText.doAfterTextChanged {
-            startDateEditText.isEnabled = countEditText.text.isEmpty()
-            endDateEditText.isEnabled = countEditText.text.isEmpty()
+            longitudeEditText.isEnabled = countEditText.text.isEmpty()
+            latitudeEditText.isEnabled = countEditText.text.isEmpty()
         }
     }
 }
